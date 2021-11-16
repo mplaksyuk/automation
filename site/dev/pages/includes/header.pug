@@ -1,0 +1,15 @@
+
+mixin navLink(link, name, position)
+    if position
+        a.nav-link.active(href=link)=name
+    else
+        a.nav-link(href=link)=name
+    
+nav.navbar.navbar-light.bg-light
+    .container-fluid
+        .d-flex
+            a.navbar-brand MSHome
+            +navLink('index.html','Home',true)
+            +navLink('graphics.html','Graphics')
+            +navLink('#','Coming soon')
+            
