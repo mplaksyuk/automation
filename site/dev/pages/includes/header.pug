@@ -7,10 +7,9 @@ mixin navLink(link, name, position)
     
 nav.navbar.navbar-light.bg-light
     .container-fluid
-        .d-flex
+        .d-flex.flex-column
             a.navbar-brand MSHome
             +navLink('index.html','Home',true)
             +navLink('graphics.html','Graphics')
             +navLink('#','Coming soon')
             
-a Connected

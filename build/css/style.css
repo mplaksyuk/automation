@@ -5,6 +5,8 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
@@ -11730,11 +11732,149 @@ textarea.form-control-lg {
     }
 }
 
+* {
+    font-family: "Kanit", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.root {
+    display: flex;
+    height: 100%;
+}
+
+.root .menu {
+    height: 100%;
+    flex: 2;
+}
+
+.root .main {
+    flex: 6;
+}
+
 .nav-link {
     color: #343a40 !important;
 }
 
-.card img {
-    height: 100px;
-    width: 100px;
+.card {
+    padding: 10px;
+    text-align: center;
+}
+
+.card svg {
+    width: 150px;
+    height: 200px;
+}
+
+.device-item {
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.device-item-top {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.device-item-top__greeting {
+    flex: 3;
+}
+
+.device-item-top__greeting h5, .device-item-top__greeting .h5 {
+    font-size: 13px;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.device-item-top__button {
+    flex: 1;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-right: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #FE844B;
+    color: #fff;
+}
+
+.device-item-top__room {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.device-item-main {
+    text-align: center;
+    height: 60%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.device-item-main__temp-card-img {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.device-item-main__temp-card-info {
+    margin-left: 50px;
+}
+
+.device-item-main__temp-card-info h4, .device-item-main__temp-card-info .h4 {
+    margin-top: 50px;
+    font-weight: 500;
+}
+
+.sockets {
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.sockets-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sockets-container h1, .sockets-container .h1 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 30px;
+}
+
+.sockets-container-list {
+    display: flex;
+}
+
+.sockets-container-list-item {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.sockets-container-list-item-image {
+    margin-right: 30px;
+}
+
+.sockets-container-list-item-info {
+    display: flex;
+    align-items: center;
+}
+
+.sockets-container-list-item-info h3, .sockets-container-list-item-info .h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sockets-container-list-item-info h5, .sockets-container-list-item-info .h5 {
+    margin-left: 15px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #adb5bd;
 }

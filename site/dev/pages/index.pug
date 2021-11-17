@@ -5,10 +5,9 @@ head
   link(href="css/style.css" rel="stylesheet")
   script(src="main.js")
 body
-  include includes/header
-  include includes/device_item
-  include includes/footer
-  include includes/socket
-  include includes/socket
-  include includes/temp
-  include includes/temp
+  .root
+    .menu.bg-light 
+      include includes/header
+    .main
+      include includes/device_item
+      include includes/sockets

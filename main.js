@@ -45,6 +45,19 @@ client.on('connect', () => {
 	socket2.set(false);
 });
 
+
+const updateSite = () => {
+	let t1 = +temp1.getTemp()
+	let h1 = +temp1.getHumidity()
+	let t2 = +temp2.getTemp()
+	let h2 = +temp2.getHumidity()
+
+	let s1 = socket1.state()
+	let s2 = socket2.state()
+	
+	// todo
+}
+
 //Update
 client.on('message', (topic, buffer) => {
 	const message = JSON.parse(buffer);
@@ -54,5 +67,7 @@ client.on('message', (topic, buffer) => {
 	process(temp1, socket1, T1);
 	process(temp2, socket2, T2);
 
+	
     //Update Cite data
+	updateSite()
 });

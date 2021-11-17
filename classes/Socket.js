@@ -5,6 +5,9 @@ export default class Socket extends Device {
         super(id, name, topic, floor)
         this.state = null
     }
+
+    get() { return this.state }
+
     set(state) {
         const s = state ? 'ON' : 'OFF'
         if (s != this.state) {
