@@ -4,7 +4,6 @@
             h3 Good Morning 
             h5 Have a nice Day!
     .device-item-main
-        include thermometer
         .device-item-main__temp-card-img 
             include temp
             
@@ -12,5 +11,14 @@
             h4 Temperature 
             h6 + 25°C
             img(src="" alt="Img")
-    .divece-item-bottom
-        include sockets
+    .device-item-bottom
+        .all-devices-title.d-flex
+            .toggle-device.choose
+                h5.sockets-title Sockets
+            h5(style="color: black; margin: 0px 5px") /
+            .toggle-device 
+                h5.thermometers-title  Thermometers
+        .sockects
+            include sockets
+        .thermometers.d-none
+            include thermometers

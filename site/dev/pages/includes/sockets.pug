@@ -1,7 +1,8 @@
 mixin newSocket(name, state, floor)
     .sockets-container-list-item 
                 .sockets-container-list-item-image 
-                    include socket
+                    .device
+                        include socket
                 .sockets-container-list-item-info-container 
                     .sockets-container-list-item-info
                         h3 Name: 
@@ -13,12 +14,10 @@ mixin newSocket(name, state, floor)
                         h3 Floor: 
                         h5= floor
 
-.sockets
-    .sockets-container 
-        h1 Sockets
-        .sockets-container-list 
-            +newSocket("Socket1","ON","1")
-            +newSocket("Socket2","OFF","2")
-            +newSocket("Socket3","ON","3")
-            +newSocket("Socket4","OFF","4")
+.sockets-container 
+    .sockets-container-list 
+        +newSocket("Socket1","ON","1")
+        +newSocket("Socket2","OFF","2")
+        +newSocket("Socket3","ON","3")
+        +newSocket("Socket4","OFF","4")
             

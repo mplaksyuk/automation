@@ -25,18 +25,23 @@ gulp.task('pug',function() {
 });
 
 gulp.task('styles', function() {
-    return gulp.src('site/dev/pages/styles/*.scss')
+    return gulp.src('site/dev/styles/*.scss')
         .pipe(sass())
         .pipe(gulpCssbeautify())
         .pipe(gulp.dest('build/css'));
 });
 
+gulp.task('scripts', function() {
+    return gulp.src('site/dev/js/*.js')
+        .pipe(gulp.dest('build/js'));
+})
 gulp.task('watch', function() {
     gulp.watch('site/dev/**/*.pug', gulp.series('pug'));
-    gulp.watch('site/dev/pages/**/*.scss', gulp.series('styles'));
+    gulp.watch('site/dev/**/*.scss', gulp.series('styles'));
+    gulp.watch('site/dev/**/*.js', gulp.series('scripts'));
 });
 
 gulp.task('default', gulp.series(
-    gulp.parallel('pug','styles'),
+    gulp.parallel('pug','styles','scripts'),
     gulp.parallel('watch', 'serve')
 ));

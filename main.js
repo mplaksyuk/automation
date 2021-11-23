@@ -68,6 +68,6 @@ client.on('message', (topic, buffer) => {
 	process(temp2, socket2, T2);
 
 	
-    //Update Cite data
+    //Update Site data
 	updateSite()
 });

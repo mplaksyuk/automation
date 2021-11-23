@@ -1,4 +1,4 @@
-@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
@@ -104,10 +104,16 @@ $black: #000 !default;
 
     }
 }
+.socket-information, .thermometer-information{
+    display: none;
+}
 
-
-.sockets {
-    margin-top: 50px;
+.all-devices-title{
+    color: gray;
+    padding: 10px;
+    margin-left: 30px;
+}
+.sockets, .thermometers {
     padding: 10px;
     &-container {
 
@@ -147,4 +153,7 @@ $black: #000 !default;
             }
         }
     }
+}
+.choose{
+    color:#000;
 }

@@ -11832,50 +11832,63 @@ html, body {
     font-weight: 500;
 }
 
-.sockets {
-    margin-top: 50px;
+.socket-information, .thermometer-information {
+    display: none;
+}
+
+.all-devices-title {
+    color: gray;
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.sockets, .thermometers {
     padding: 10px;
 }
 
-.sockets-container {
+.sockets-container, .thermometers-container {
     display: flex;
     flex-direction: column;
 }
 
-.sockets-container h1, .sockets-container .h1 {
+.sockets-container h1, .sockets-container .h1, .thermometers-container h1, .thermometers-container .h1 {
     font-size: 26px;
     font-weight: 600;
     margin-left: 30px;
 }
 
-.sockets-container-list {
+.sockets-container-list, .thermometers-container-list {
     display: flex;
 }
 
-.sockets-container-list-item {
+.sockets-container-list-item, .thermometers-container-list-item {
     margin-left: 30px;
     display: flex;
     align-items: center;
     text-align: left;
 }
 
-.sockets-container-list-item-image {
+.sockets-container-list-item-image, .thermometers-container-list-item-image {
     margin-right: 30px;
 }
 
-.sockets-container-list-item-info {
+.sockets-container-list-item-info, .thermometers-container-list-item-info {
     display: flex;
     align-items: center;
 }
 
-.sockets-container-list-item-info h3, .sockets-container-list-item-info .h3 {
+.sockets-container-list-item-info h3, .sockets-container-list-item-info .h3, .thermometers-container-list-item-info h3, .thermometers-container-list-item-info .h3 {
     font-size: 16px;
     font-weight: 500;
 }
 
-.sockets-container-list-item-info h5, .sockets-container-list-item-info .h5 {
+.sockets-container-list-item-info h5, .sockets-container-list-item-info .h5, .thermometers-container-list-item-info h5, .thermometers-container-list-item-info .h5 {
     margin-left: 15px;
     font-size: 12px;
     font-weight: 400;
     color: #adb5bd;
+}
+
+.choose {
+    color: #000;
 }
