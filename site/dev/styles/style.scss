@@ -109,16 +109,32 @@ $black: #000 !default;
 }
 
 .all-devices-title{
-    color: gray;
+    color: #83838394;
     padding: 10px;
     margin-left: 30px;
 }
-.sockets, .thermometers {
-    padding: 10px;
-    &-container {
-
+@media screen and(max-width: 1800px)
+{
+    .sockets,.thermometers{
+        max-width: 1320px !important;
+    }
+}
+@media screen and (max-width: 1200px)
+{
+    .sockets,.thermometers{
+        max-width: 840px  !important;
         
-        display: flex;
+    }
+}
+@media screen and (max-width: 900px)
+{
+    .sockets,.thermometers{
+        max-width: 660px  !important;
+    } 
+}
+.sockets, .thermometers {
+    &-container {
+        padding: 30px;
         flex-direction: column;
         h1 {
             font-size: 26px;
@@ -130,6 +146,7 @@ $black: #000 !default;
             &-item {
                 margin-left: 30px;
                 display: flex;
+                min-width: 300px;
                 align-items: center;
                  text-align: left;
                  &-image {
@@ -156,4 +173,14 @@ $black: #000 !default;
 }
 .choose{
     color:#000;
+}
+.all-device-information{
+    width: 100%;
+    border-left:2px solid #ced4da;
+    padding:30px;
+}
+.device-information-bottom {
+    margin: 0 30px;
+    border: 2px solid #ced4da;
+    border-radius: 5ch;
 }
