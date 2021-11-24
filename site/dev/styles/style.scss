@@ -104,32 +104,36 @@ $black: #000 !default;
 
     }
 }
-.socket-information, .thermometer-information{
-    display: none;
-}
 
 .all-devices-title{
     color: #83838394;
     padding: 10px;
     margin-left: 30px;
 }
-@media screen and(max-width: 1800px)
+
+@media screen and(max-width: 2540px)
 {
     .sockets-container-list,.thermometers-container-list{
         max-width: 1320px !important;
     }
 }
-@media screen and (max-width: 1200px)
+@media screen and (max-width: 2200px)
 {
     .sockets-container-list,.thermometers-container-list{
         max-width: 1020px  !important;
         
     }
 }
-@media screen and (max-width: 900px)
+@media screen and (max-width: 1800px)
 {
     .sockets-container-list,.thermometers-container-list{
-        max-width: 660px  !important;
+        max-width: 720px  !important;
+    } 
+}
+@media screen and (max-width: 1400px)
+{
+    .sockets-container-list,.thermometers-container-list{
+        max-width: 420px  !important;
     } 
 }
 .sockets, .thermometers {
@@ -144,10 +148,10 @@ $black: #000 !default;
         &-list {
             display: flex;
             flex-wrap: wrap;
+            width: 1320px;
             &-item {
                 margin-left: 30px;
                 display: flex;
-                min-width: 300px;
                 align-items: center;
                  text-align: left;
                  &-image {
@@ -176,12 +180,28 @@ $black: #000 !default;
     color:#000;
 }
 .all-device-information{
+    
     width: 100%;
     border-left:2px solid #ced4da;
     padding:30px;
+    &-content{
+        width: 100%;
+        height: 100%;
+    }
+   
 }
 .device-information-bottom {
     margin: 0 30px;
     border: 2px solid #ced4da;
     border-radius: 5ch;
+    
+}
+.device{
+    display: flex ;
+
+}
+
+.socket-information, .thermometer-information{
+    margin-left: 30px;
+    align-self: center;
 }

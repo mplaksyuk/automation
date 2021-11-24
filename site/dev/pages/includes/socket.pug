@@ -1,17 +1,24 @@
-.socket
+.device
+    .socket
     svg.socket-icon(width="156" height="195")
 
-        rect(x="12" y="15" rx="30" ry="30" width="132" height="165" stroke="#ced4da" stroke-width="5" stroke-linecap="round" fill="transparent")
+            rect(x="12" y="15" rx="30" ry="30" width="132" height="165" stroke="#ced4da" stroke-width="5" stroke-linecap="round" fill="transparent")
 
-        line(x1="78" x2="78" y1="60" y2="80" stroke="#ced4da" stroke-width="5")
-        path(d="M 58 60 V 80 m 0 -5 C 48 76 48 64 58 65" fill="#ced4da" stroke="#ced4da" stroke-width="5")
-        path(d="M 98 60 V 80 m 0 -5 C 108 76 108 64 98 65" fill="#ced4da" stroke="#ced4da" stroke-width="5")
+            line(x1="78" x2="78" y1="60" y2="80" stroke="#ced4da" stroke-width="5")
+            path(d="M 58 60 V 80 m 0 -5 C 48 76 48 64 58 65" fill="#ced4da" stroke="#ced4da" stroke-width="5")
+            path(d="M 98 60 V 80 m 0 -5 C 108 76 108 64 98 65" fill="#ced4da" stroke="#ced4da" stroke-width="5")
 
-        line(x1="56" x2="66" y1="100" y2="120" stroke="#ced4da" stroke-width="5")
-        line(x1="100" x2="90" y1="100" y2="120" stroke="#ced4da" stroke-width="5")
+            line(x1="56" x2="66" y1="100" y2="120" stroke="#ced4da" stroke-width="5")
+            line(x1="100" x2="90" y1="100" y2="120" stroke="#ced4da" stroke-width="5")
 
-        circle(cx="78" cy="155" r="3" fill="#00FF00" stroke="gray")
-    .socket-information
-        .socket-name
-        .socket-state
-        .socket-floor
+            circle(cx="78" cy="155" r="3" fill="#00FF00" stroke="gray")
+    .socket-information.d-none
+        .socket-name.sockets-container-list-item-info
+            h3 Name: 
+            h5 1
+        .socket-state.sockets-container-list-item-info
+            h3 state: 
+            h5 1
+        .socket-floor.sockets-container-list-item-info
+            h3 Floor: 
+            h5 1
