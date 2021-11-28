@@ -1,19 +1,16 @@
-mixin newTemp(name, floor)
+template#t-thermometer
     .thermometers-container-list-item 
                 .thermometers-container-list-item-image
                     include temp
                 .thermometers-container-list-item-info-container 
                     .thermometers-container-list-item-info
-                        h3 Name: 
-                        h5= name
+                        h3.name Name: 
+                        h5.name
                     .thermometers-container-list-item-info
-                        h3 Floor: 
-                        h5= floor
+                        h3.floor Floor: 
+                        h5.floor
 
 
 .thermometers-container 
     .thermometers-container-list 
-        +newTemp("Temp1","1")
-        +newTemp("Temp2","2")
-        +newTemp("Temp3","3")
-        +newTemp("Temp4","4")
+        

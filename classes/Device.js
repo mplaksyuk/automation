@@ -1,16 +1,12 @@
-export default class Device {
-    constructor(id, name, topic, floor) {
-        this.id = id
+class Device {
+    constructor(name, topic, floor) {
         this.name = name
         this.topic = topic
         this.floor = floor
     }
 
-    subscribe(client) {
-			client.subscribe(this.topic)
-	}
-
-    process(topic, message) {}
-    
+    process(message) {
+    }
 }
 
+module.exports = Device;

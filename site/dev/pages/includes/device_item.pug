@@ -4,13 +4,9 @@
             h3 Good Morning 
             h5 Have a nice Day!
     .device-item-main
-        .device-item-main__temp-card-img 
-            include temp
-            
-        .device-item-main__temp-card-info 
-            h4 Temperature 
-            h6 + 25°C
-            img(src="" alt="Img")
+        .device-item-main__temp-card
+            h1 + 25°C
+            h1 + 25°C
     .device-item-bottom
         .all-devices-title.d-flex
             .toggle-device.choose
@@ -18,10 +14,11 @@
             h5(style="color: black; margin: 0px 5px") /
             .toggle-device 
                 h5.thermometers-title  Thermometers
-        .d-flex.device-information-bottom        
-            .sockects
-                include sockets
-            .thermometers.d-none
-                include thermometers
+        .d-flex.device-information-bottom
+            .devices     
+                .sockects
+                    include sockets
+                .thermometers.d-none
+                    include thermometers
             .all-device-information
                 .all-device-information-content

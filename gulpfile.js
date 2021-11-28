@@ -4,16 +4,25 @@ const gulp = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
 const csso = require('gulp-csso');
+const nodemon = require('gulp-nodemon');
 const gulpCssbeautify = require('gulp-cssbeautify');
 const browserSync = require('browser-sync').create();
 
-gulp.task('serve', function() {
-    browserSync.init({
-        server: {
-            baseDir: "build"
-        }
-    });
-    browserSync.watch('build', browserSync.reload)
+gulp.task('serve', function(done) {
+    return nodemon({ script: 'main.js', watch: '.', ext: 'js', done: done })
+        .on('start', function() {
+            if (!browserSync.active) {
+                console.log('Starting browser-sync server...');
+                browserSync.init({ proxy: 'localhost:9090', startPath: '/index.html' });
+            }
+        })
+        .on('restart', function() {
+            console.log('Server restarted.');
+        })
+        .on('crash', function() {
+            console.error('Server crashed!');
+            this.emit('restart', 10)
+        });
 });
 
 gulp.task('pug',function() {

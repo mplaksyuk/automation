@@ -1,22 +1,17 @@
-mixin newSocket(name, state, floor)
+template#t-socket
     .sockets-container-list-item 
                 .sockets-container-list-item-image 
                     include socket
                 .sockets-container-list-item-info-container 
                     .sockets-container-list-item-info
-                        h3 Name: 
-                        h5= name
+                        h3.name Name: 
+                        h5.name
                     .sockets-container-list-item-info
-                        h3 Status: 
-                        h5= state
+                        h3.state Status: 
+                        h5.state
                     .sockets-container-list-item-info
-                        h3 Floor: 
-                        h5= floor
+                        h3.floor Floor: 
+                        h5.floor
 
 .sockets-container 
-    .sockets-container-list 
-        +newSocket("Socket1","ON","1")
-        +newSocket("Socket2","OFF","2")
-        +newSocket("Socket3","ON","3")
-        +newSocket("Socket4","OFF","4")
-            
+    .sockets-container-list

@@ -1,20 +1,24 @@
-import Device from "./Device"
+const Device = require("./Device.js");
 
-export default class Temp extends Device {
+class Temp extends Device {
+    type = 'thermometer';
+    temp;
+    humidity;
+
     constructor(id, name, topic, floor) {
         super(id, name, topic, floor)
-        this.temp = null
-        this.humidity = null
     }
 
-    getTemp() { return this.temp }
-	getHumidity() { return this.humidity }	
+    get temp() { return this.temp }
+
+	get humidity() { return this.humidity }	
     
-    process(topic, message) {
-        if (this.topic == topic && this.temp != message.temperature) {
+    process(message) {
+        if (this.temp != message.temperature) {
             this.temp = message.temperature
             console.log(`${this.name} = ${this.temp}`)
         }
     }
-		
 }
+
+module.exports = Temp;
