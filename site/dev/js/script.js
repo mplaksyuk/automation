@@ -3,7 +3,48 @@ $(function(){
     const s_link = '.sockets-container-list';
     const t_link = '.thermometers-container-list';
 
+
+    function change_local_device(device) {
+        if (!localStorage.hasOwnProperty('devices')) {
+            localStorage.setItem('devices', JSON.stringify({
+                sockets: [],
+                thermometers: []
+            }))
+        }
+
+        console.log(JSON.parse(localStorage.getItem('devices')));
+        const {sockets, thermometers} = JSON.parse(localStorage.getItem('devices'))
+ 
+        switch (device.type) {
+            case "socket":
+                if (sockets.indexOf(device) === -1) {
+                    sockets.push(device) 
+                } else {
+                    sockets = sockets.map( socket => socket.topic == device.topic 
+                                ? device 
+                                : socket)
+                }
+                
+                localStorage.setItem('devices', JSON.stringify({sockets, thermometers}))
+                break
+            case "thermometer":
+                 if (thermometers.indexOf(device) === -1) {
+                    thermometers.push(device) 
+                } else {
+                    thermometers.map( thermometer => thermometer.topic == device.topic 
+                                ? device 
+                                : thermometer)
+                }
+                
+                localStorage.setItem('devices', JSON.stringify({sockets, thermometers}))
+                break
+        }
+        
+    }
+
     function create_device(device) {
+       
+
         if(device.type == "socket"){
 
             const socket =  $('#t-socket');
@@ -30,10 +71,9 @@ $(function(){
 
             temp_info.find('h5.name').text(device.name).end()
             .find('h5.floor').text(device.floor).end();
-
-
-
         }
+
+        change_local_device(device)
     }
     
     $.getJSON('/api/v1/devices', function(data) {
@@ -46,6 +86,7 @@ $(function(){
         $(this).closest('.device-item-bottom').find('.sockects').toggleClass('d-none').end()
         .closest('.device-item-bottom').find('.thermometers').toggleClass('d-none').end()
         .closest('.device-item-bottom').find('.toggle-device').toggleClass('choose').end();
+         $('.all-device-information-content').empty();
     })
 
     $('.devices').on('click','.device', function(){
