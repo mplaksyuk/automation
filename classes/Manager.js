@@ -1,11 +1,15 @@
+const { response } = require('express');
 const mqtt = require('mqtt');
+
+
 
 class Manager {
     devices = { };
     client;
+    callback = (msg) => { };
 
-    constructor() {
-          
+    constructor(callback) {
+        this.callback = callback;
     }
 
     connect (url) {
@@ -17,13 +21,14 @@ class Manager {
         });
 
         this.client.on('message', (topic, buffer) => {
+            
             console.log('message is received');
             const message = JSON.parse(buffer);
             console.log(message);
             const device = this.devices[topic];
 
-            if(device)
-                device.process(message);
+            if (device)
+                device.process(message, this.callback);
         });
     }
 
@@ -39,6 +44,10 @@ class Manager {
 
     add (device) {
         this.devices[device.topic] = device;
+    }
+
+    onmessage (callback) {
+        this.callback = callback;
     }
 }
 

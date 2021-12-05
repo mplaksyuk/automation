@@ -1,4 +1,49 @@
+const ws = new WebSocket('ws://localhost:9090');
+
 $(function(){
+
+    ws.onmessage = message => {
+        const response = JSON.parse(message.data);
+        console.log(response);
+
+        $(`#${response.name}`)
+            .find('h5.name').text(response.name).end()
+            .find('h5.state').text(response.state).end()
+            .find('h5.floor').text(response.floor).end()
+
+        const device_info = $(`#${response.name}`).find('.'+`${response.type}`+'-information');
+            device_info.find('h5.name').text(response.name).end()
+            .find('h5.state').text(response.state).end()
+            .find('h5.floor').text(response.floor).end()
+            .find('h5.power').text(response.power).end()
+            .find('h5.consumption').text(response.consumption).end()
+            .find('h5.linkquality').text(response.linkquality).end()
+            .find('h5.temperature').text(response.temperature).end()
+            .find('h5.humidity').text(response.humidity).end()
+            .find('h5.pressure').text(response.pressure).end()
+            .find('ah5.voltage').text(response.voltage).end()
+            .find('h5.topic').text(response.topic).end();
+        
+        if(response.type == 'thermometer')
+            $(".temperature-floor"+`${response.floor}`).text(response.temperature).end();
+        
+        const looked = $(".all-device-information");
+        if(looked.find('h5.name').text() == response.name) {
+            looked.find('h5.name').text(response.name).end()
+            .find('h5.state').text(response.state).end()
+            .find('h5.floor').text(response.floor).end()
+            .find('h5.power').text(response.power).end()
+            .find('h5.consumption').text(response.consumption).end()
+            .find('h5.linkquality').text(response.linkquality).end()
+            .find('h5.temperature').text(response.temperature).end()
+            .find('h5.humidity').text(response.humidity).end()
+            .find('h5.pressure').text(response.pressure).end()
+            .find('ah5.voltage').text(response.voltage).end()
+            .find('h5.topic').text(response.topic).end();
+
+            
+        }
+    };
 
     const s_link = '.sockets-container-list';
     const t_link = '.thermometers-container-list';
@@ -12,9 +57,10 @@ $(function(){
             const t_socket =  $('#t-socket');
             
             const socket = t_socket.contents().clone().appendTo(s_link)
-            .find('h5.name').text(device.name).end()
-            .find('h5.state').text(device.state).end()
-            .find('h5.floor').text(device.floor).end();
+                .attr('id', device.name)
+                .find('h5.name').text(device.name).end()
+                .find('h5.state').text(device.state).end()
+                .find('h5.floor').text(device.floor).end();
 
             const socket_info = socket.find('.socket-information');
 
@@ -26,6 +72,8 @@ $(function(){
             .find('h5.linkquality').text(device.linkquality).end()
             .find('h5.temperature').text(device.temperature).end()
             .find('h5.topic').text(device.topic).end();
+
+            
 
         }
         else if(device.type == "thermometer"){

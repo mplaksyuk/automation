@@ -23,15 +23,18 @@ class Socket extends Device {
         }
     }
 
-    process(message) {
-        this.consumption = message.consumption
-        this.linkquality = message.linkquality
-        this.power = message.power
-        this.temperature = message.temperature
+    process(message, callback) {
+        this.consumption = message.consumption;
+        this.linkquality = message.linkquality;
+        this.power = message.power;
+        this.temperature = message.temperature;
+
         if (this.state != message.state) {
-			this.state = message.state
+			this.state = message.state;
 			console.log(`Set ${this.name} ${this.state}`)
 		}
+
+        callback(Object.assign({ }, this));
     }
 }
 

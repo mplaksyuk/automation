@@ -46,31 +46,42 @@ manager.add(temp2);
 
 manager.connect('mqtt://192.168.1.101');
 
-const ws = require('ws');
-const express = require('express');
 const { get } = require('browser-sync');
 const { parseJSON } = require('jquery');
+
+const express = require('express');
+const http = require('http');
+const WebSocket = require('ws');
+
 const app = express();
 
+//initialize a simple http server
+const server = http.createServer(app);
 
+//initialize the WebSocket server instance
+const wss = new WebSocket.Server({ server });
 
+manager.onmessage((message) => {
+	console.log(message.toString());
+	wss.clients.forEach(client => {
+		if(client.readyState === WebSocket.OPEN){
+			client.send(JSON.stringify(message));
+		}
+	});
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+wss.on('connection', ws => {
+	console.log("message from ws");
+    ws.on('message', message => {
+		console.log("messege in function");
+        console.log(message.toString());
+        wss.clients.forEach(client => {
+            if(client.readyState === WebSocket.OPEN){
+                client.send(message);
+            }
+        });
+    })
+});
 
 app.use(express.json());
 
@@ -93,6 +104,13 @@ app.get('/api/v1/temp', function(req,res) {
 	res.send.json(temp1.temp);
 });
 
+/*app.ws('/', function(ws, req) {
+	ws.on('message', function(msg) {
+		console.log(msg);
+	});
+	console.log('socket', req.testing);
+});*/
+
 app.get('/*', express.static('./build'));
 
-app.listen(9090);
+server.listen(9090);

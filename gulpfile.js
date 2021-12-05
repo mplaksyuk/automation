@@ -14,7 +14,7 @@ gulp.task('serve', function(done) {
         .on('start', function() {
             if (!browserSync.active) {
                 console.log('Starting browser-sync server...');
-                browserSync.init({ proxy: 'localhost:9090', startPath: '/index.html' });
+                browserSync.init({ proxy: 'localhost:3000', startPath: '/index.html' });
             }
         })
         .on('restart', function() {

@@ -5,7 +5,7 @@ class Device {
         this.floor = floor
     }
 
-    process(message) {
+    process(message, callback) {
     }
 
     set(state,client) {
