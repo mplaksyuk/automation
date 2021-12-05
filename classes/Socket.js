@@ -2,7 +2,7 @@ const Device = require("./Device.js");
 
 class Socket extends Device {
     type = "socket";
-    state = "OFF";
+    state = null;
     consumption;
     linkquality;
     power;
@@ -12,22 +12,24 @@ class Socket extends Device {
         super(name, topic, floor)
     }
 
-    get state() { return this.state }
+    //get state() { return this.state }
 
-    set state(state) {
-        const s = state ? 'ON' : 'OFF'
+    set(state,client) {
+        const s = state;
         if (s != this.state) {
             client.publish(this.topic + '/set', s)
+            this.state = s;
             console.log(`Turn ${this.name} ${s}`)
         }
     }
 
     process(message) {
+        this.consumption = message.consumption
+        this.linkquality = message.linkquality
+        this.power = message.power
+        this.temperature = message.temperature
         if (this.state != message.state) {
 			this.state = message.state
-            this.consumption = message.consumption
-            this.linkquality = message.linkquality
-            this.power = message.power
 			console.log(`Set ${this.name} ${this.state}`)
 		}
     }

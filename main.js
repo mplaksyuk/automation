@@ -46,14 +46,44 @@ manager.add(temp2);
 
 manager.connect('mqtt://192.168.1.101');
 
-
+const ws = require('ws');
 const express = require('express');
 const { get } = require('browser-sync');
+const { parseJSON } = require('jquery');
 const app = express();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.use(express.json());
 
+app.post('/api/v1/state', function(req, res) {
+	const data = req.body;
+	console.log("received" + data);
+	console.log(data.state);
+	console.log(data.topic);
+	manager.set(data.state, data.topic);
+});
+
 app.get('/api/v1/devices', function(req, res) {
+	console.log(manager.list);
 	res.send(manager.list);
 });
 

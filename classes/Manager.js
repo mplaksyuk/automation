@@ -27,6 +27,12 @@ class Manager {
         });
     }
 
+    set(state,topic) {
+        const device = this.devices[topic];
+        console.log(this.devices[topic]);
+        device.set(state,this.client);
+    }
+
     get list() {
         return Object.values(this.devices).map(device => device);
     }

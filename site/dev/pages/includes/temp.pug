@@ -16,10 +16,31 @@
             line(x1="82" x2="80" y1="68" y2="68" stroke="#ced4da" stroke-width="2" stroke-linecap="round")
 
             circle(cx="78" cy="110" r="3" fill="#00FF00" stroke="gray")
-    .thermometer-information.d-none
-        .thermometer-name.thermometers-container-list-item-info
-            h3 Name: 
-            h5.name 
-        .thermometer-floor.thermometers-container-list-item-info
-            h3 Floor: 
-            h5.floor
+    .thermometer-information.d-none.d-flex
+        .first-column
+            .thermometer-name.thermometers-container-list-item-info
+                h3 Name: 
+                h5.name 
+            .thermometer-floor.thermometers-container-list-item-info
+                h3 Floor: 
+                h5.floor
+            .thermometer-temperature.thermometers-container-list-item-info
+                h3 Temp: 
+                h5.temperature
+            .thermometer-humidity.thermometers-container-list-item-info
+                h3 Humidity: 
+                h5.humidity
+        .second-column
+            .thermometer-linkquality.thermometers-container-list-item-info
+                h3 Linkquality: 
+                h5.linkquality
+            .thermometer-pressure.thermometers-container-list-item-info
+                h3 Pressure: 
+                h5.pressure
+            .thermometer-voltage.thermometers-container-list-item-info
+                h3 Voltage: 
+                h5.voltage
+            .thermometer-topic.thermometers-container-list-item-info.d-none
+                h3 Topic: 
+                h5.topic
+            

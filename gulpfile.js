@@ -7,6 +7,7 @@ const csso = require('gulp-csso');
 const nodemon = require('gulp-nodemon');
 const gulpCssbeautify = require('gulp-cssbeautify');
 const browserSync = require('browser-sync').create();
+const ws = require('ws');
 
 gulp.task('serve', function(done) {
     return nodemon({ script: 'main.js', watch: '.', ext: 'js', done: done })

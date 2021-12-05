@@ -12,13 +12,30 @@
             line(x1="100" x2="90" y1="100" y2="120" stroke="#ced4da" stroke-width="5")
 
             circle(cx="78" cy="155" r="3" fill="#00FF00" stroke="gray")
-    .socket-information.d-none
-        .socket-name.sockets-container-list-item-info
-            h3 Name: 
-            h5.name
-        .socket-state.sockets-container-list-item-info
-            h3 Status: 
-            h5.state
-        .socket-floor.sockets-container-list-item-info
-            h3 Floor: 
-            h5.floor 
+    .socket-information.d-none.d-flex
+        .first-column
+            .socket-name.sockets-container-list-item-info
+                h3 Name: 
+                h5.name
+            .socket-state.sockets-container-list-item-info
+                h3 Status: 
+                h5.state
+            .socket-floor.sockets-container-list-item-info
+                h3 Floor: 
+                h5.floor
+            .socket-power.sockets-container-list-item-info
+                h3 Power: 
+                h5.power  
+        .second-column
+            .socket-consumption.sockets-container-list-item-info
+                h3 Consumption:
+                h5.consumption  
+            .socket-linkquality.sockets-container-list-item-info
+                h3 Linkquality: 
+                h5.linkquality
+            .socket-temperature.sockets-container-list-item-info
+                h3 Temp: 
+                h5.temperature 
+            .socket-topic.sockets-container-list-item-info.d-none
+                h3 Topic: 
+                h5.topic 

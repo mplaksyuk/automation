@@ -7,6 +7,10 @@ class Device {
 
     process(message) {
     }
+
+    set(state,client) {
+
+    }
 }
 
 module.exports = Device;
