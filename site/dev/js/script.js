@@ -10,6 +10,8 @@ $(function(){
             .find('h5.name').text(response.name).end()
             .find('h5.state').text(response.state).end()
             .find('h5.floor').text(response.floor).end()
+            .find('h5.temperature').text(response.temperature).end()
+            .find('h5.humidity').text(response.humidity).end();
 
         const device_info = $(`#${response.name}`).find('.'+`${response.type}`+'-information');
             device_info.find('h5.name').text(response.name).end()
@@ -81,6 +83,7 @@ $(function(){
             const t_temp = $('#t-thermometer');
             
             const temp = t_temp.contents().clone().appendTo(t_link)
+            .attr('id', device.name)
             .find('h5.name').text(device.name).end()
             .find('h5.floor').text(device.floor).end()
             .find('h5.temperature').text(device.temperature).end()

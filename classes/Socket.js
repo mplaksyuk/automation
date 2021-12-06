@@ -16,6 +16,10 @@ class Socket extends Device {
 
     set(state,client) {
         const s = state;
+
+        console.log("this s =" + s);
+        console.log("new state ="+ state);
+        console.log("this.state ="+this.state);
         if (s != this.state) {
             client.publish(this.topic + '/set', s)
             this.state = s;
